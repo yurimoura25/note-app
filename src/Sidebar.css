@@ -1,0 +1,30 @@
+.Sidebar {
+    display: flex;
+    width: 100%;
+    font-weight: lighter;
+    height: 100vh;
+    background: #eee;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.Sidebar p {
+    padding: 20px;
+    text-align: center;
+}
+
+.Sidebar button {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 100;
+    background-color:transparent;
+    border: transparent;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+}
+
+.Sidebar button:hover {
+    background-color: #ddd;
+}
