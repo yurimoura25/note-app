@@ -1,11 +1,15 @@
 import react from 'react';
 import './Note.css';
 
-function Notes() {
+function Notes(props) {
     return (
-      <div className="card">
-          <div className="card-body"></div>
-      </div>
+          <div className={props.color}>
+              <div className="card-body">
+                <div className="row01">
+                  <p className="card-text">{props.text}</p>
+                </div>
+              </div>
+          </div>
     );
 }
 

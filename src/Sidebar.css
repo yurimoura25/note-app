@@ -9,12 +9,18 @@
 }
 
 
-.Sidebar p {
-    padding: 20px;
+.Sidebar p{
+    display: block;
     text-align: center;
+    height: 100px;
+    width:100%;
+    margin:0;
+    padding: 20px 0px;
 }
 
 .Sidebar button {
+    margin: 0;
+    padding: 0;
     text-align: center;
     font-size: 2rem;
     font-weight: 100;

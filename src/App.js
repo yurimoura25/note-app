@@ -11,8 +11,14 @@ function App() {
           <div className="side col-1">
             <Sidebar />
           </div>
-          <div className="notes col-11">
-            <Notes />
+          <div className="notes col">
+            <Notes color="card color01" text="Preciso fazer uma anotação e usarei o Note it"/>
+            <Notes color="card color01" text="Preciso fazer uma anotação e usarei o Note it"/>
+            <Notes color="card color01" text="Preciso fazer uma anotação e usarei o Note it"/>
+            <Notes color="card color01" text="Preciso fazer uma anotação e usarei o Note it"/>
+            <Notes color="card color01" text="Preciso fazer uma anotação e usarei o Note it"/>
+            <Notes color="card color01" text="Preciso fazer uma anotação e usarei o Note it"/>
+
           </div>
         </div>
       </div>
