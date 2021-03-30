@@ -52,22 +52,10 @@ root {
   padding: 20px 0px;
 }
 
-.Sidebar .handle-buttons {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 100;
-  background-color:transparent;
-  border: transparent;
-  height: 60px;
-  width: 60px;
-  border-radius: 30px;
+.Add-note a {
+  margin-top: 20px;
 }
 
-.Sidebar .handle-buttons:hover {
-  background-color: #ddd;
-}
 .button {
   border: none;
   height: 30px;
@@ -85,4 +73,14 @@ root {
 .blue {
   background-color: #4234ff;
   color:#fff;
+}
+
+.yellow {
+  background-color: #fcff5b;
+  color:rgb(29, 29, 29);
+}
+
+.green {
+  background-color: #76ff53;
+  color:rgb(39, 39, 39);
 }

@@ -21,6 +21,29 @@
     font-size: 14px;
 }
 
+.row02 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.row02 .edit-button {
+    color:rgb(22, 22, 22);
+    background-color: transparent;
+    border: none;
+}
+.row02 .delete-button {
+    color:rgb(22, 22, 22);
+    background-color: transparent;
+    border: none;
+}
+
+.row02 .edit-button:hover {
+    color:#000;
+}
+
+
+
 .card-text{
     width: 100%;
     background-color: transparent;
@@ -40,6 +63,7 @@
     background-color: #4234ff;
     color:#fff;
 }
+
 
 
 
