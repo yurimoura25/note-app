@@ -3,11 +3,19 @@ import './App.css';
 import Note from './Notes.js';
 import { useState } from 'react';
 
+
 function App() {
   const [noteState, setNotes] = useState([{color: 'blue', id: '0'}]);
 
   const carregarNote = (color) => {
-    noteState.length<=14 ? setNotes([...noteState, {color: `${color}`, id: `${noteState.length}`}]) : console.log('limite')
+    noteState.length<=14 ? setNotes([...noteState, {color: `${color}`, id: `${noteState.length}`, text: 'mac'}]) : console.log('limite')
+  }
+
+  const deleteNote = (note) => {
+    const notes = Object.assign([],noteState);
+    console.log("notes:", notes)
+    console.log(notes.splice(notes.indexOf(note), 1));
+    setNotes(notes);
   }
 
   return (
@@ -43,7 +51,7 @@ function App() {
             {
             noteState
             .map((note) => {
-              return <Note color={note.color} id={note.id} />
+              return <Note color={note.color} id={note.id}  deleteNote={() => deleteNote(note)} text={note.text}/>
             })
 
             }
