@@ -1,23 +1,29 @@
 import './css/App.css';
 import Note from './components/Notes.js';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NoteContext from './components/NoteContext.js'
 
 function App() {
   const [noteState, setNotes] = useState([]);
-  const carregarNote = (color) => {
+  const addNote = (color) => {
     const notes = noteState.slice();
-
     const lastItem = noteState.pop();
     const lastId = lastItem? lastItem.id : 0;
     const note = {color: color, id: lastId+1, text: ""}
 
     notes.push(note)
     setNotes(notes)
+    localStorage.setItem('@note-app:notes', JSON.stringify(notes));
   }
 
+  useEffect(() => {
+    const storagedNotes = localStorage.getItem('@note-app:notes');
+    if(storagedNotes) {
+      setNotes(JSON.parse(storagedNotes))
+    }
+  }, [])
 
-  const colors = ['red', 'blue', 'yellow', 'green', 'black'];
+  const colors = ['red', 'blue', 'yellow', 'green'];
 
 
   return (
@@ -29,9 +35,9 @@ function App() {
               <p>Note it</p>
               <div className="Add-note">
                 {colors.map(color =>
-                    <button className={'button '+ color}
+                    <button className={`button ${color}`}
                     type="button"
-                    onClick={() => carregarNote(color, `Note de cor: ${color.toString}`)}
+                    onClick={() => addNote(color)}
                     />
                   )
                 }
