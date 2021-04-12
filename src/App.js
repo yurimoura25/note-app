@@ -1,22 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-import Note from './Notes.js';
+import './css/App.css';
+import Note from './components/Notes.js';
 import { useState } from 'react';
-
+import NoteContext from './components/NoteContext.js'
 
 function App() {
-  const [noteState, setNotes] = useState([{color: 'blue', id: '0'}]);
-
+  const [noteState, setNotes] = useState([]);
   const carregarNote = (color) => {
-    noteState.length<=14 ? setNotes([...noteState, {color: `${color}`, id: `${noteState.length}`, text: 'mac'}]) : console.log('limite')
+    const notes = noteState.slice();
+
+    const lastItem = noteState.pop();
+    const lastId = lastItem? lastItem.id : 0;
+    const note = {color: color, id: lastId+1, text: ""}
+
+    notes.push(note)
+    setNotes(notes)
   }
 
-  const deleteNote = (note) => {
-    const notes = Object.assign([],noteState);
-    console.log("notes:", notes)
-    console.log(notes.splice(notes.indexOf(note), 1));
-    setNotes(notes);
-  }
+
+  const colors = ['red', 'blue', 'yellow', 'green', 'black'];
+
 
   return (
     <div className="app">
@@ -26,35 +28,27 @@ function App() {
             <div className="Sidebar">
               <p>Note it</p>
               <div className="Add-note">
-                <button className="button red "
-                type="button"
-                onClick={() => carregarNote('red')}
-                />
-                <button className="button blue" 
-                type="button" 
-                onClick={() => carregarNote('blue')}
-                />
-                <button className="button yellow" 
-                type="button"
-                onClick={() => carregarNote('yellow')}
-                />
-                <button className="button green" 
-                type="button"
-                onClick={() => carregarNote('green')}
-                />
+                {colors.map(color =>
+                    <button className={'button '+ color}
+                    type="button"
+                    onClick={() => carregarNote(color, `Note de cor: ${color.toString}`)}
+                    />
+                  )
+                }
                 
                 
               </div>
             </div>
           </div>
           <div className="notes col">
-            {
-            noteState
-            .map((note) => {
-              return <Note color={note.color} id={note.id}  deleteNote={() => deleteNote(note)} text={note.text}/>
-            })
-
-            }
+            <NoteContext.Provider value={{noteState, setNotes}} > 
+              {
+              noteState
+              .map(note => (
+                  <Note color={note.color} id={note.id} text={note.text}/>
+                ))
+              }
+            </NoteContext.Provider>
           </div>
         </div>
       </div>
